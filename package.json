@@ -1,0 +1,40 @@
+{
+  "name": "crc-native",
+  "version": "1.0.0",
+  "description": "libcrc JavaScript bindings for Node.js",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "prebuilds",
+    "binding.c",
+    "binding.gyp",
+    "vendor/libcrc/LICENSE",
+    "vendor/libcrc/include",
+    "vendor/libcrc/src",
+    "vendor/libcrc.gyp"
+  ],
+  "scripts": {
+    "test": "standard && brittle test.mjs",
+    "prebuild": "prebuildify --napi",
+    "install": "node-gyp-build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holepunchto/crc-native.git"
+  },
+  "author": "Kasper Isager Dalsgarð <kasper@funktionel.co>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/holepunchto/crc-native/issues"
+  },
+  "homepage": "https://github.com/holepunchto/crc-native#readme",
+  "dependencies": {
+    "napi-macros": "^2.0.0",
+    "node-gyp-build": "^4.2.3"
+  },
+  "devDependencies": {
+    "brittle": "^2.3.1",
+    "prebuildify": "^4.1.2",
+    "standard": "^17.0.0"
+  }
+}

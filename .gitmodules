@@ -1,0 +1,3 @@
+[submodule "vendor/libcrc"]
+	path = vendor/libcrc
+	url = git@github.com:holepunchto/libcrc.git
