@@ -6,7 +6,7 @@
       './vendor/libcrc/include',
     ],
     'dependencies': [
-      './vendor/libcrc.gyp:crc',
+      './vendor/libcrc.gyp:libcrc',
     ],
     'sources': [
       './binding.c',

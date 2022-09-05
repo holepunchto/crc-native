@@ -1,6 +1,6 @@
 {
   'targets': [{
-    'target_name': 'crc',
+    'target_name': 'libcrc',
     'type': 'static_library',
     'sources': [
       './libcrc/src/arm.c',
