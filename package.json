@@ -30,8 +30,7 @@
   "homepage": "https://github.com/holepunchto/crc-native#readme",
   "dependencies": {
     "napi-macros": "^2.0.0",
-    "node-gyp-build": "^4.2.3",
-    "node-segfault-handler": "^1.1.0"
+    "node-gyp-build": "^4.2.3"
   },
   "devDependencies": {
     "brittle": "^2.3.1",
