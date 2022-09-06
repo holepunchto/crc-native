@@ -6,6 +6,7 @@
       './libcrc/src/arm.c',
       './libcrc/src/endian.c',
       './libcrc/src/generic.c',
+      './libcrc/src/lookup.c',
     ],
     'configurations': {
       'Debug': {
