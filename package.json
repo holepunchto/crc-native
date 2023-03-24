@@ -8,10 +8,10 @@
     "prebuilds",
     "binding.c",
     "binding.gyp",
-    "vendor/libcrc/LICENSE",
+    "CMakeLists.txt",
+    "vendor/libcrc.gyp",
     "vendor/libcrc/include",
-    "vendor/libcrc/src",
-    "vendor/libcrc.gyp"
+    "vendor/libcrc/src"
   ],
   "scripts": {
     "test": "standard && brittle test.mjs",
