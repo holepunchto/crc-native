@@ -10,9 +10,6 @@ jobs:
         include:
         - os: ubuntu-22.04
           container: ghcr.io/holepunchto/prebuild-linux
-        - os: macos-14
-        - os: macos-14
-          container: ghcr.io/holepunchto/prebuild-linux
     runs-on: ${{ matrix.os }}
     container: ${{ matrix.container }}
     steps:
