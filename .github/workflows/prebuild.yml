@@ -19,6 +19,7 @@ jobs:
     - uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node }}
+    - run: npm install -g node-gyp
     - run: npm install
     - run: npm run prebuild
     - uses: actions/upload-artifact@v3
