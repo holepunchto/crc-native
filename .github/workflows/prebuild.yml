@@ -22,7 +22,7 @@ jobs:
     - run: npm upgrade -g npm
     - run: npm install
     - run: npm run prebuild
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v3
       with:
         name: prebuilds
         path: prebuilds/*
