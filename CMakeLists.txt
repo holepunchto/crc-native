@@ -11,19 +11,13 @@ endif()
 add_bare_module(crc_native)
 
 target_sources(
-  crc_native
+  ${crc_native}
   PRIVATE
     binding.c
 )
 
-target_include_directories(
-  crc_native
-  PUBLIC
-    $<TARGET_PROPERTY:crc,INTERFACE_INCLUDE_DIRECTORIES>
-)
-
 target_link_libraries(
-  crc_native
+  ${crc_native}
   PUBLIC
     crc_static
 )
