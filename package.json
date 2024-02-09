@@ -1,6 +1,6 @@
 {
   "name": "crc-native",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "libcrc JavaScript bindings for Node.js",
   "main": "index.js",
   "files": [
