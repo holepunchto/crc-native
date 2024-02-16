@@ -12,6 +12,8 @@ add_bare_module(crc_native)
 
 target_sources(
   ${crc_native}
+  PUBLIC
+    $<TARGET_OBJECTS:crc>
   PRIVATE
     binding.c
 )
@@ -19,5 +21,5 @@ target_sources(
 target_link_libraries(
   ${crc_native}
   PUBLIC
-    crc_static
+    crc
 )
