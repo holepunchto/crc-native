@@ -1,3 +1,4 @@
 [submodule "vendor/libcrc"]
 	path = vendor/libcrc
 	url = ../../holepunchto/libcrc.git
+	shallow = true

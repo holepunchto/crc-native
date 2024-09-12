@@ -1,6 +1,7 @@
 #include <crc.h>
-#include <napi-macros.h>
 #include <node_api.h>
+
+#include "macros.h"
 
 NAPI_METHOD(crc_u32_napi) {
   NAPI_ARGV(1);
