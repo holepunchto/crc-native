@@ -27,14 +27,6 @@ target_link_libraries(
 
 add_napi_module(crc_native_node)
 
-bare_include_directories(compat NAPI)
-
-target_include_directories(
-  ${crc_native_node}
-  PRIVATE
-    ${compat}
-)
-
 target_sources(
   ${crc_native_node}
   PRIVATE
