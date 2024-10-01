@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/holepunchto/crc-native#readme",
   "dependencies": {
-    "load-addon": "^1.0.0"
+    "node-gyp-build": "^4.8.2"
   },
   "devDependencies": {
     "brittle": "^3.1.0",
