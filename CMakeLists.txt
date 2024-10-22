@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.25)
 
-project(crc_native C)
+find_package(cmake-bare REQUIRED PATHS node_modules/cmake-bare)
+find_package(cmake-napi REQUIRED PATHS node_modules/cmake-napi)
 
-include(bare)
-include(napi)
+project(crc_native C)
 
 if(NOT TARGET crc)
   add_subdirectory(vendor/libcrc EXCLUDE_FROM_ALL)
