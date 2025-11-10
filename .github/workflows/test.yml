@@ -1,30 +1,21 @@
 name: Test
-
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
-
 jobs:
   lint:
     runs-on: ubuntu-latest
-
+    name: Lint
     steps:
       - uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '22'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run lint
-        run: |
-          npm run lint
-
+          node-version: lts/*
+      - run: npm install
+      - name:
+        run: npm run lint
   test:
     strategy:
       matrix:
@@ -32,39 +23,22 @@ jobs:
           - os: ubuntu-latest
             platform: linux
             arch: x64
-
           - os: macos-latest
             platform: darwin
             arch: arm64
-
           - os: windows-latest
             platform: win32
             arch: x64
-
     runs-on: ${{ matrix.os }}
-    name: ${{ matrix.platform }}-${{ matrix.arch }}
+    name: Build / ${{ matrix.platform }}-${{ matrix.arch }}
     steps:
       - uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
-
-      - name: Install bare-runtime and bare-make
-        run: npm install -g bare-runtime bare-make
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Generate native build
-        run: bare-make generate --platform ${{ matrix.platform }} --arch ${{ matrix.arch }} --debug
-
-      - name: Build native module
-        run: bare-make build
-
-      - name: Install native module
-        run: bare-make install
-
-      - name: Run tests
-        run: npm test
+      - run: npm install -g bare-runtime bare-make
+      - run: npm install
+      - run: bare-make generate --platform ${{ matrix.platform }} --arch ${{ matrix.arch }} --debug
+      - run: bare-make build
+      - run: bare-make install
+      - run: npm test
