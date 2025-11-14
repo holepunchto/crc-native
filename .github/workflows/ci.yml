@@ -4,19 +4,14 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
-
 jobs:
   lint:
     runs-on: ubuntu-latest
-    name: Checks
-
+    name: Lint
     steps:
       - uses: holepunchto/actions/node-base@current
       - run: npm run lint
-
   test:
-    runs-on: ${{ matrix.os }}
-    name: Test ${{ matrix.os }}
     strategy:
       matrix:
         include:
@@ -29,6 +24,8 @@ jobs:
           - os: windows-latest
             platform: win32
             arch: x64
+    runs-on: ${{ matrix.os }}
+    name: Test / ${{ matrix.platform }}-${{ matrix.arch }}
     steps:
       - uses: holepunchto/actions/node-base@current
       - run: npm install -g bare-runtime bare-make
