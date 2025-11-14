@@ -25,5 +25,8 @@ jobs:
           - os: windows-latest
     steps:
       - uses: holepunchto/actions/node-base@current
-      - run: npm install -g bare-runtime
+      - run: npm install -g bare-runtime bare-make
+      - run: bare-make generate --platform ${{ matrix.platform }} --arch ${{ matrix.arch }} --debug
+      - run: bare-make build
+      - run: bare-make install
       - run: npm test
