@@ -1,13 +1,22 @@
-name: Test
+name: CI
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
+
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    name: Checks
+
+    steps:
+      - uses: holepunchto/actions/node-base@current
+      - run: npm run lint
+
   test:
+    runs-on: ${{ matrix.os }}
+    name: Test ${{ matrix.os }}
     strategy:
       matrix:
         include:
@@ -20,15 +29,9 @@ jobs:
           - os: windows-latest
             platform: win32
             arch: x64
-    runs-on: ${{ matrix.os }}
-    name: ${{ matrix.platform }}-${{ matrix.arch }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
+      - uses: holepunchto/actions/node-base@current
       - run: npm install -g bare-runtime bare-make
-      - run: npm install
       - run: bare-make generate --platform ${{ matrix.platform }} --arch ${{ matrix.arch }} --debug
       - run: bare-make build
       - run: bare-make install
