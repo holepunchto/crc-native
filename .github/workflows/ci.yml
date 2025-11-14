@@ -21,8 +21,14 @@ jobs:
       matrix:
         include:
           - os: ubuntu-latest
+            platform: linux
+            arch: x86
           - os: macos-latest
+            platform: darwin
+            arch: arm64
           - os: windows-latest
+            platform: win32
+            arch: x86
     steps:
       - uses: holepunchto/actions/node-base@current
       - run: npm install -g bare-runtime bare-make
