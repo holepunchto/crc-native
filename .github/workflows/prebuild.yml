@@ -54,7 +54,6 @@ jobs:
     steps:
       - uses: holepunchto/actions/node-base@current
       - run: npm install -g bare-make
-      - run: npm install
       - run: bare-make generate --platform ${{ matrix.platform }} --arch ${{ matrix.arch }} ${{ matrix.flags }}
       - run: bare-make build
       - run: bare-make install
